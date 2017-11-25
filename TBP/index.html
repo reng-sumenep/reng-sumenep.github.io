@@ -10,7 +10,7 @@
 </head>
 <body>
 <div style="width:800px; margin:0 auto;">
-<h2>TBP - DAFTAR BUKU</h2>
+<h2>TBP - DAFTAR BUKU <span id="idx"></span></h2>
 <div class="slider lazy">
 
 <div><div class="image"><img data-lazy="images/18581664_10156114027643888_2564347390822281616_n.jpg"/></div></div>
@@ -262,15 +262,20 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="/slick/slick.min.js"></script>
 <script>
-$(document).ready(function(){
+$(document).ready(function() {
     $('.lazy').slick({
         lazyLoad: 'ondemand',
         arrows: true,
-        /* infinite: true, */
         speed: 500,
         fade: true,
         cssEase: 'linear'
-        } );
+    } );
+    
+    $('.lazy').on( 'beforeChange', function( event, slick, currentSlide, nextSlide ) { 
+        // console.log( currentSlide );
+        // console.log( s );
+        $('#idx').html( ' - #' + nextSlide );
+    } );
 } );
 </script>
 
